@@ -11,11 +11,11 @@
 
   <div class="calendario-container">
     <div class="encabezado">
-      <button id="prev">&#8592;</button>
+      <button id="prev" aria-label="Mes anterior">&#8592;</button>
       <h1 id="mes-anio"></h1>
-      <button id="next">&#8594;</button>
+      <button id="next" aria-label="Mes siguiente">&#8594;</button>
     </div>
-    <table id="calendario">
+    <table id="calendario" role="grid" aria-labelledby="mes-anio" aria-readonly="true">
       <thead>
         <tr>
           <th>Dom</th><th>Lun</th><th>Mar</th><th>Mié</th><th>Jue</th><th>Vie</th><th>Sáb</th>

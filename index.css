@@ -32,23 +32,32 @@ body, html {
   text-shadow: 1px 1px 3px black;
   background-color: rgba(0, 0, 0, 0.3);
   padding: 20px;
+  box-sizing: border-box;
 }
 
 .encabezado {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 20px;
+  position: relative;
+  width: 100%;
+  max-width: 700px;
+  height: 60px;
   margin-bottom: 20px;
+  /* No flexbox para evitar movimiento */
 }
 
 .encabezado h1 {
+  margin: 0;
   font-size: 2.5rem;
   color: #9b2622;
   text-shadow: 1px 1px 4px black;
+  text-align: center;
+  line-height: 60px;
+  user-select: none;
 }
 
-button {
+#prev, #next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
   font-size: 1.5rem;
   padding: 10px 20px;
   background-color: rgba(165, 42, 42, 0.7);
@@ -58,8 +67,19 @@ button {
   border-radius: 8px;
   transition: background-color 0.3s, box-shadow 0.3s;
   box-shadow: 0 0 6px rgba(150, 27, 27, 0.7);
+  height: 40px;
+  user-select: none;
 }
-button:hover {
+
+#prev {
+  left: 0;
+}
+
+#next {
+  right: 0;
+}
+
+#prev:hover, #next:hover {
   background-color: rgb(163, 37, 37);
   box-shadow: 0 0 12px rgb(117, 23, 23);
 }
@@ -110,7 +130,6 @@ td.fecha.selected {
   box-shadow: 0 0 8px rgba(219, 34, 34, 0.8);
 }
 
-/* Al final de index.css */
 @media (max-width: 480px) {
   .calendario-container {
     padding: 10px;
@@ -122,5 +141,20 @@ td.fecha.selected {
 
   th, td {
     padding: 8px;
+  }
+
+  .encabezado {
+    height: 50px;
+  }
+
+  .encabezado h1 {
+    font-size: 1.8rem;
+    line-height: 50px;
+  }
+
+  #prev, #next {
+    font-size: 1.2rem;
+    padding: 8px 15px;
+    height: 35px;
   }
 }

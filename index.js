@@ -14,28 +14,28 @@ document.addEventListener("DOMContentLoaded", () => {
     mesAnio.textContent = `${String(mes + 1).padStart(2, "0")} - ${meses[mes]} ${año}`;
     tbody.innerHTML = "";
 
+    // Día de la semana del primer día del mes (0=Domingo,...)
     const primerDia = new Date(año, mes, 1).getDay();
+    // Número de días que tiene el mes
     const totalDias = new Date(año, mes + 1, 0).getDate();
 
     let fila = document.createElement("tr");
 
-    // Celdas vacías antes del primer día del mes
+    // Celdas vacías antes del primer día
     for (let i = 0; i < primerDia; i++) {
       fila.appendChild(document.createElement("td"));
     }
 
-    // Agregar los días del mes
     for (let dia = 1; dia <= totalDias; dia++) {
       const celda = document.createElement("td");
       celda.textContent = dia;
       celda.classList.add("fecha");
 
-      // Solo para el día 10 de abril (mes == 3)
-      if (mes === 3 && dia === 10) {
+      // Si es 10 de mayo (mes=4, dia=10), añade enlace
+      if (mes === 4 && dia === 10) {
         celda.style.cursor = "pointer";
         celda.addEventListener("click", () => {
-          // Abrir la página local 10abril.html en la misma ventana
-          window.location.href = "10abril.html";
+          window.location.href = "10mayo.html";
         });
       }
 
@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
 
-    // Completar la última fila con celdas vacías
+    // Completar la última fila con celdas vacías si es necesario
     if (fila.children.length > 0) {
       while (fila.children.length < 7) {
         fila.appendChild(document.createElement("td"));
@@ -75,24 +75,4 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   generarCalendario(mes, año);
-});
-
-function ajustarEstiloResponsive() {
-  const calendario = document.getElementById("calendario");
-  const encabezado = document.querySelector(".encabezado h1");
-
-  if (window.innerWidth <= 480) { // Tamaño típico móvil
-    calendario.style.fontSize = "0.8rem";
-    encabezado.style.fontSize = "1.5rem";
-  } else {
-    calendario.style.fontSize = "1.1rem";
-    encabezado.style.fontSize = "2.5rem";
-  }
-}
-
-// Llamar esta función al cargar y al cambiar tamaño
-window.addEventListener("resize", ajustarEstiloResponsive);
-document.addEventListener("DOMContentLoaded", () => {
-  // ... tu código ...
-  ajustarEstiloResponsive();
 });
