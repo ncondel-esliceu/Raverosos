@@ -76,3 +76,23 @@ document.addEventListener("DOMContentLoaded", () => {
 
   generarCalendario(mes, año);
 });
+
+function ajustarEstiloResponsive() {
+  const calendario = document.getElementById("calendario");
+  const encabezado = document.querySelector(".encabezado h1");
+
+  if (window.innerWidth <= 480) { // Tamaño típico móvil
+    calendario.style.fontSize = "0.8rem";
+    encabezado.style.fontSize = "1.5rem";
+  } else {
+    calendario.style.fontSize = "1.1rem";
+    encabezado.style.fontSize = "2.5rem";
+  }
+}
+
+// Llamar esta función al cargar y al cambiar tamaño
+window.addEventListener("resize", ajustarEstiloResponsive);
+document.addEventListener("DOMContentLoaded", () => {
+  // ... tu código ...
+  ajustarEstiloResponsive();
+});

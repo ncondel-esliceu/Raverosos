@@ -30,3 +30,20 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+// Dentro del evento click para mostrar la imagen grande
+img.addEventListener("click", () => {
+  imagenGrande.src = img.src;
+  imagenGrande.alt = img.alt;
+  caption.textContent = img.alt;
+
+  // Ajustar tamaño máximo para móviles
+  if (window.innerWidth <= 480) {
+    imagenGrande.style.maxWidth = "95%";
+    imagenGrande.style.maxHeight = "60vh";
+  } else {
+    imagenGrande.style.maxWidth = "90%";
+    imagenGrande.style.maxHeight = "80vh";
+  }
+
+  modal.style.display = "block";
+});

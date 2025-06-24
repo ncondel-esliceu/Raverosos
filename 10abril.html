@@ -1,83 +1,9 @@
-<!DOCTYPE html>
-<html lang="es">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Galería de Imágenes</title>
+  <link rel="stylesheet" href="Dias CSS/10abril.css" />
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 20px;
-      background-color: #f4f4f4;
-      text-align: center;
-    }
-
-    h1 {
-      margin-bottom: 30px;
-      color: #333;
-    }
-
-    .galeria {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 15px;
-    }
-
-    .thumbnail {
-      width: 150px;
-      height: 100px;
-      object-fit: cover;
-      cursor: pointer;
-      border: 3px solid transparent;
-      transition: border-color 0.3s;
-    }
-
-    .thumbnail:hover {
-      border-color: #ad1d1d;
-    }
-
-    .modal {
-      display: none; /* Oculto por defecto */
-      position: fixed;
-      z-index: 1000;
-      padding-top: 60px;
-      left: 0; top: 0;
-      width: 100%; height: 100%;
-      overflow: auto;
-      background-color: rgba(0,0,0,0.8);
-    }
-
-    .modal-contenido {
-      margin: auto;
-      display: block;
-      max-width: 90%;
-      max-height: 80vh;
-      border-radius: 8px;
-      box-shadow: 0 0 20px rgba(255,255,255,0.5);
-    }
-
-    #caption {
-      margin: 15px auto;
-      color: #fff;
-      font-size: 18px;
-      max-width: 90%;
-    }
-
-    #cerrar {
-      position: absolute;
-      top: 25px;
-      right: 35px;
-      color: #fff;
-      font-size: 40px;
-      font-weight: bold;
-      cursor: pointer;
-      user-select: none;
-      background: none;
-      border: none;
-      transition: color 0.3s;
-    }
-
     #cerrar:hover {
       color: #ad1d1d;
     }
